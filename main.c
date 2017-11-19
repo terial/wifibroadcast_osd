@@ -94,7 +94,10 @@ int main(int argc, char *argv[]) {
     osd_init(shift_x, shift_y, scale_x, scale_y);
 
     memset(fds, '\0', sizeof(fds));
-    fd = open_udp_socket_for_rx(14550);
+  /*
+ * Change default UDP port for telemetry from 14550 to 14551
+ */
+    fd = open_udp_socket_for_rx(14551);
 
     if(fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) | O_NONBLOCK) < 0)
     {
